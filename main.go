@@ -36,6 +36,9 @@ func main() {
 		s := rand.NewSource(time.Now().Unix())
 		message := s.Int63()
 
+		if counter == 9 {
+			message = -1
+		}
 		_ = client.Publish(channel, message)
 		fmt.Println("Publish: ", message)
 		counter++
